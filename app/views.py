@@ -5,6 +5,10 @@ from django.contrib import messages
 
 # Create your views here.
 
+
+def login(request):
+    return render(request, 'registration/login.html')
+
 def home(request):
     return render(request, 'app/home.html')
 
@@ -13,3 +17,4 @@ def registro_cliente(request):
 
 def registro_profesional(request):
     return render(request, 'registration/registro_profesional.html')
+

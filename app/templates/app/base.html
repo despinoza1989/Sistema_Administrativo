@@ -21,7 +21,7 @@
           <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Inicio</a>
                 </li>
 
                 <!-- PESTAÑA DE USUARIOS CON SUB MENUS -->
@@ -30,11 +30,11 @@
                     Usuarios
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Registro de Profesional</a></li>
+                        <li><a class="dropdown-item" href="{% url 'registro_profesional' %}">Registro de Profesional</a></li>
                         <li><a class="dropdown-item" href="#">Profesionales Activos</a></li>
                         <li><a class="dropdown-item" href="#">Profesionales Inactivos</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Registro de Cliente</a></li>
+                        <li><a class="dropdown-item" href="{% url 'registro_cliente' %}">Registro de Cliente</a></li>
                         <li><a class="dropdown-item" href="#">Cliente Activos</a></li>
                         <li><a class="dropdown-item" href="#">Cliente Inactivos</a></li>
                     </ul>
@@ -84,7 +84,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Salir</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Salir</a>
                 </li>
 
             </ul>
