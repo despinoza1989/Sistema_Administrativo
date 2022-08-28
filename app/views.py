@@ -7,3 +7,6 @@ from django.contrib import messages
 
 def home(request):
     return render(request, 'app/home.html')
+
+def registro_cliente(request):
+    return render(request, 'registration/registro_cliente.html')
