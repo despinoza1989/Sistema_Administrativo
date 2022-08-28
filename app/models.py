@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
 from django.db.models.fields import AutoField
 from django.db.models.fields.related import ForeignKey
 from django.db.models.query import QuerySet
@@ -51,6 +51,21 @@ RUBRO= (
     ("ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES","ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES"),
     )
 
+
+class Administrativo(models.Model):
+    id_administrativo = models.AutoField(primary_key=True)
+    rut = models.CharField(max_length=10, default='')
+    telefono_administrativo = models.IntegerField()
+    nombre_administrativo = models.CharField(max_length=80, default='')
+    apellidos_administrativo = models.CharField(max_length=80, default='')
+    email_administrativo = models.CharField(max_length=100, default='')
+    direccion_administrativo = models.CharField(max_length=200, default='')
+    fecha_nacimiento = models.DateField()
+    estado_civil = models.CharField(max_length=200, choices=ESTADO_CIVIL, default='')
+    sexo = models.CharField(max_length=10, choices=SEXO, default='')
+
+    def __str__(self):
+        return self.rut
 
 class Profesional(models.Model):
     id_profesional = models.AutoField(primary_key=True)
