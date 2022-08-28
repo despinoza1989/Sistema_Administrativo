@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser
 from django.db.models.fields import AutoField
 from django.db.models.fields.related import ForeignKey
 from django.db.models.query import QuerySet
@@ -50,6 +50,7 @@ RUBRO= (
     ("ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES; ACTIVIDADES NO DIFERENCIADAS DE LOS HOGARES","ACTIVIDADES DE LOS HOGARES COMO EMPLEADORES; ACTIVIDADES NO DIFERENCIADAS DE LOS HOGARES"),
     ("ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES","ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES"),
     )
+
 
 class Profesional(models.Model):
     id_profesional = models.AutoField(primary_key=True)

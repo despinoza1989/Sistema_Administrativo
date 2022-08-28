@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+
+{% block contenido %}
+<br><br><br>
+<div class="card" style="margin: 1px 5em;">
+    <div class="card-body">
+        <h3 align="center">Profesionales Activos</h3>
+        <hr>
+        <table class="table table-striped table-hover table-responsive-sm">
+            <tr>
+                <th>Nombre</th>
+                <th>Rut</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Opción</th>
+            </tr>
+
+            {% for p in profesionales %}
+
+            <tr>
+                <td>{{ p.nombre_profesional | title}}</td>
+                <td>{{ p.rut | title}}</td>
+                <td>{{ p.telefono_profesional | title}}</td>
+                <td>{{ p.email_profesional | title}}</td>
+            </tr>
+
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock %}
