@@ -10,3 +10,6 @@ def home(request):
 
 def registro_cliente(request):
     return render(request, 'registration/registro_cliente.html')
+
+def registro_profesional(request):
+    return render(request, 'registration/registro_profesional.html')
