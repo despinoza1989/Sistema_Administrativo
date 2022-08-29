@@ -1,8 +1,6 @@
 from django.urls import path
-<<<<<<< HEAD
 from .views import home, login, registro_cliente, registro, registro_profesional, listado_profesionales, listado_clientes, registro_administrativo, desactivar_usuario, activar_usuario
 from .views import ListarUsuariosActivos, ListarUsuariosInactivos
-from .views import home, login, registro_cliente, registro, registro_profesional, listado_profesionales, listado_clientes, registro_administrativo
 
 urlpatterns = [
     path('', home, name="home"),
