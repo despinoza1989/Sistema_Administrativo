@@ -91,12 +91,6 @@ class ListarUsuariosInactivos(ListView):
     queryset = User.objects.filter(is_active = False)
 
 
-#   VISITA
-
-
-def agendar_visita_terreno(request):
-    return render(request, 'app/visita/agendar_visita_terreno.html')
-
 
 # ACTIVAR Y DESACTIVAR
 
