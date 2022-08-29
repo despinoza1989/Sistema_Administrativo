@@ -51,6 +51,7 @@ RUBRO= (
     ("ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES","ACTIVIDADES DE ORGANIZACIONES Y ÓRGANOS EXTRATERRITORIALES"),
     )
 
+    
 
 class Administrativo(models.Model):
     id_administrativo = models.AutoField(primary_key=True)

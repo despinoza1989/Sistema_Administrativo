@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from .models import Profesional, Cliente, Administrativo
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -51,7 +52,7 @@ def listado_administrativos(request):
     data = {
         'administrativos': administrativos
     }
-    return render(request, 'app/listar/listar_administrativo_activos.html', data)
+    return render(request, 'app/listar/listar_administrativo.html', data)
 
 
 def listado_profesionales(request):
@@ -60,7 +61,7 @@ def listado_profesionales(request):
     data = {
         'profesionales': profesionales
     }
-    return render(request, 'app/listar/listar_profesional_activos.html', data)
+    return render(request, 'app/listar/listar_profesional.html', data)
 
 
 def listado_clientes(request):
@@ -69,7 +70,26 @@ def listado_clientes(request):
     data = {
         'clientes': clientes
     }
-    return render(request, 'app/listar/listar_cliente_activos.html', data)
+    return render(request, 'app/listar/listar_cliente.html', data)
+
+def listado_clientes(request):
+    user = User.objects.all()
+
+    data = {
+        'user': user
+    }
+    return render(request, 'app/listar/listar_cliente.html', data)
+
+class ListarUsuariosActivos(ListView):
+    model = User
+    template_name = 'app/listar/listar_usuarios_activos.html'
+    queryset = User.objects.filter(is_active = True)
+
+class ListarUsuariosInactivos(ListView):
+    model = User
+    template_name = 'app/listar/usuarios_inactivos.html'
+    queryset = User.objects.filter(is_active = False)
+
 
 #   VISITA
 
@@ -79,3 +99,20 @@ def agendar_visita_terreno(request):
 
 
 # ACTIVAR Y DESACTIVAR
+
+def desactivar_usuario(request, id):
+
+    usuario = get_object_or_404(User, id=id)
+    usuario.is_active=False
+    usuario.save()
+    messages.success(request, "Usuario Desactivado Correctamente")
+    return redirect(to="usuarios_activos")
+
+def activar_usuario(request, id):
+
+    usuario = get_object_or_404(User, id=id)
+    usuario.is_active=True
+    usuario.save()
+    messages.success(request, "Usuario Activado Correctamente")
+    return redirect(to="usuarios_inactivos")
+

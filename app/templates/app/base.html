@@ -30,6 +30,10 @@
                     Usuarios
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'registro' %}">Registro de Usuarios</a></li>
+                        <li><a class="dropdown-item" href="{% url 'usuarios_activos' %}">Usuarios Activos</a></li>
+                        <li><a class="dropdown-item" href="#">Administrativos Inactivos</a></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'registro_administrativo' %}">Registro de Administrativo</a></li>
                         <li><a class="dropdown-item" href="#">Administrativo Activos</a></li>
                         <li><a class="dropdown-item" href="#">Administrativos Inactivos</a></li>
@@ -96,6 +100,7 @@
           </div>
         </div>
       </nav>
+
     <div id="contenido">
 
         {% block contenido %}
@@ -104,9 +109,6 @@
     </div>
 
 
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
     <!--<footer>
         <div class="marcas">
@@ -120,5 +122,26 @@
             <img src="img/tecnomarketpngicono.png" alt="logo">
         </div>
     </footer>-->
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "Completado",
+                    "text": "{{m}}",
+                    "icon":"success"
+                })
+            </script>
+        {% endfor %}
+    {% endif %}	
+
+    {% block js %}
+    {% endblock %}
+
 </body>
 </html>
