@@ -71,6 +71,11 @@ def listado_clientes(request):
     }
     return render(request, 'app/listar/listar_cliente_activos.html', data)
 
+#   VISITA
+
+
+def agendar_visita_terreno(request):
+    return render(request, 'app/visita/agendar_visita_terreno.html')
 
 
 # ACTIVAR Y DESACTIVAR
