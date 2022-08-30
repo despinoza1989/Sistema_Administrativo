@@ -110,3 +110,8 @@ def activar_usuario(request, id):
     messages.success(request, "Usuario Activado Correctamente")
     return redirect(to="usuarios_inactivos")
 
+
+# ASIGNAR  
+
+def asignar_profesional(request):
+    return render(request, 'app/asignar/asignar_profesional.html')

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, login, registro_cliente, registro, registro_profesional, listado_profesionales, listado_clientes, registro_administrativo, desactivar_usuario, activar_usuario
+from .views import home, login, registro_cliente, registro, registro_profesional, listado_profesionales, listado_clientes, registro_administrativo, desactivar_usuario, activar_usuario, asignar_profesional
 from .views import ListarUsuariosActivos, ListarUsuariosInactivos
 
 urlpatterns = [
@@ -14,5 +14,7 @@ urlpatterns = [
     path('usuarios-inactivos/', ListarUsuariosInactivos.as_view(), name="usuarios_inactivos"),
     path('desactivar-usuario/<id>/', desactivar_usuario, name="desactivar_usuario"), 
     path('activar-usuario/<id>/', activar_usuario, name="activar_usuario"), 
-
+    path('asignar/asignar_profesional/', asignar_profesional, name="asignar_profesional"),
 ]
+
+
