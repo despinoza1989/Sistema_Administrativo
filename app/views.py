@@ -115,3 +115,24 @@ def activar_usuario(request, id):
 
 def asignar_profesional(request):
     return render(request, 'app/asignar/asignar_profesional.html')
+
+
+# MODIFICAR
+
+def modificar_usuario(request, id):
+
+    usuario = get_object_or_404(User, id=id)
+
+    data = {
+        'form': CustomUserCreationForm(instance=usuario)
+    }
+
+    if  request.method == 'POST':
+        formulario = CustomUserCreationForm(data=request.POST, instance=usuario)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Usuario Modificado Correctamente")
+            return redirect(to="usuarios_activos")
+        data["form"] = formulario
+
+    return render(request,'app/modificar/modificar_usuario.html', data)    
