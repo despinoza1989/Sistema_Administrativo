@@ -20,10 +20,10 @@ SEXO= (
     )
 
 ESTADO_CIVIL= (
-    ("Casado","Casado"),
-    ("Soltero","Soltero"),
-    ("Viudo", "Viudo"),
-    ("Divorciado", "Divorciado")
+    ("Casado","Casado(a)"),
+    ("Soltero","Soltero(a)"),
+    ("Viudo", "Viudo(a)"),
+    ("Divorciado", "Divorciado(a)")
     )
 
 RUBRO= (

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, AdministrativoForm, ClienteForm, ProfesionalForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
@@ -19,13 +19,52 @@ def home(request):
 #   REGISTROS
 
 def registro_administrativo(request):
-    return render(request, 'registration/registro_administrativo.html')
+
+    data = {
+        'form': AdministrativoForm()
+    }
+
+    if request.method == 'POST':
+        formulario = AdministrativoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Administrativo Registrado Exitosamente")
+        else: 
+            data["form"] = formulario
+
+    return render(request, 'registration/registro_administrativo.html',data)
 
 def registro_cliente(request):
-    return render(request, 'registration/registro_cliente.html')
+
+    data = {
+        'form': ClienteForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Administrativo Registrado Exitosamente")
+        else: 
+            data["form"] = formulario
+
+    return render(request, 'registration/registro_cliente.html',data)
 
 def registro_profesional(request):
-    return render(request, 'registration/registro_profesional.html')
+
+    data = {
+        'form': ProfesionalForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ProfesionalForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Administrativo Registrado Exitosamente")
+        else: 
+            data["form"] = formulario
+
+    return render(request, 'registration/registro_profesional.html',data)
 
 def registro(request):
     data = {

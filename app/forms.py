@@ -1,7 +1,8 @@
 from socket import fromshare
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User, Administrativo, Profesional, Cliente
+from django.contrib.auth.models import User
+from .models import Administrativo, Profesional, Cliente
 
 class CustomUserCreationForm(UserCreationForm):
     
