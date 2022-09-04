@@ -1,9 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Profesional, Cliente, Administrativo
+from .models import Personal, Clientes
 # Register your models here.
 
 
-admin.site.register(Administrativo)
-admin.site.register(Profesional)
-admin.site.register(Cliente)
+admin.site.register(Personal)
+admin.site.register(Clientes)

@@ -2,7 +2,7 @@ from socket import fromshare
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Administrativo, Profesional, Cliente
+from .models import Clientes
 
 class CustomUserCreationForm(UserCreationForm):
     
@@ -10,23 +10,9 @@ class CustomUserCreationForm(UserCreationForm):
         model = User
         fields = ['username', "first_name", "last_name", "email","password1", "password2"]
 
-class AdministrativoForm(forms.ModelForm):
-
-    class Meta: 
-        model = Administrativo
-
-        fields = '__all__'
-
 class ClienteForm(forms.ModelForm):
 
     class Meta: 
-        model = Cliente
-
-        fields = '__all__'
-
-class ProfesionalForm(forms.ModelForm):
-
-    class Meta: 
-        model = Profesional
+        model = Clientes
 
         fields = '__all__'

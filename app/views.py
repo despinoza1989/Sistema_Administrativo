@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import CustomUserCreationForm, AdministrativoForm, ClienteForm, ProfesionalForm
+from .forms import CustomUserCreationForm, ClienteForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
-from .models import Profesional, Cliente, Administrativo
+from .models import Clientes, Personal
 from django.contrib.auth.models import User
 
 
@@ -17,22 +17,6 @@ def home(request):
     return render(request, 'app/home.html')
 
 #   REGISTROS
-
-def registro_administrativo(request):
-
-    data = {
-        'form': AdministrativoForm()
-    }
-
-    if request.method == 'POST':
-        formulario = AdministrativoForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, "Administrativo Registrado Exitosamente")
-        else: 
-            data["form"] = formulario
-
-    return render(request, 'registration/registro_administrativo.html',data)
 
 def registro_cliente(request):
 
@@ -49,22 +33,6 @@ def registro_cliente(request):
             data["form"] = formulario
 
     return render(request, 'registration/registro_cliente.html',data)
-
-def registro_profesional(request):
-
-    data = {
-        'form': ProfesionalForm()
-    }
-
-    if request.method == 'POST':
-        formulario = ProfesionalForm(data=request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            messages.success(request, "Administrativo Registrado Exitosamente")
-        else: 
-            data["form"] = formulario
-
-    return render(request, 'registration/registro_profesional.html',data)
 
 def registro(request):
     data = {
@@ -85,26 +53,8 @@ def registro(request):
 
 #   LISTADOS
 
-def listado_administrativos(request):
-    administrativos = Administrativo.objects.all()
-
-    data = {
-        'administrativos': administrativos
-    }
-    return render(request, 'app/listar/listar_administrativo.html', data)
-
-
-def listado_profesionales(request):
-    profesionales = Profesional.objects.all()
-
-    data = {
-        'profesionales': profesionales
-    }
-    return render(request, 'app/listar/listar_profesional.html', data)
-
-
 def listado_clientes(request):
-    clientes = Cliente.objects.all()
+    clientes = Clientes.objects.all()
 
     data = {
         'clientes': clientes
