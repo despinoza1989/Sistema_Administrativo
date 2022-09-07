@@ -18,6 +18,23 @@ def home(request):
 
 #   REGISTROS
 
+def registro_personal(request):
+
+    data = {
+        'form': ClienteForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            messages.success(request, "Administrativo Registrado Exitosamente")
+        else: 
+            data["form"] = formulario
+
+    return render(request, 'registration/registro_personal.html',data)
+
+
 def registro_cliente(request):
 
     data = {
